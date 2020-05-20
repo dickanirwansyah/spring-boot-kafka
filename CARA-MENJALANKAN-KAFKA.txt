@@ -1,0 +1,37 @@
+# How to running kafka & zookeeper
+
+1. Open the command prompt and navigate to the Kafka home directory
+
+C:\kafka>
+
+2. Enter the command 'gradle' and press Enter
+
+C:\kafka>gradle
+
+3. Once the build is successful enter the below command
+
+C:\kafka>gradlew jar
+
+4. run zookeeper
+
+C:\kafka>.\bin\windows\zookeeper-server-start.bat \.config\zookeeper.properties
+
+5. run kafka server
+
+C:\kafka>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+6. create example topic
+
+
+c:\kafka>.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic HelloTopic
+
+7. test producer kafka topic
+
+
+C:\kafka>.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic HelloTopic
+
+8. test consumer kafka topic
+
+C:\kafka>.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic HelloTopic --from-beginning
+
+
